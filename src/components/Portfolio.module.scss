@@ -1,0 +1,190 @@
+@import 'Variables';
+
+.portfolio {
+    position: absolute;
+    background-color: $--black;
+    width: 85vw;
+    height: 80vh;
+    left: 300vw;
+    padding-left: 10vw;
+    padding-right: 5vw;
+    padding-top: 15vh;
+    box-sizing: content-box;
+    font-family: "Staatliches";
+    font-style: normal;
+    font-weight: 400;
+    color: $--white;
+
+    .hero {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        margin-top: 28vh;
+        margin-bottom: 30vh;
+
+        .title {
+            position: absolute;
+            margin-top: -8%;
+            margin-left: 10%;
+            width: 80%;
+            font-size: min(18vw, 26rem);
+            line-height: 100%;
+        }
+
+        .title.blue {
+            position: relative;
+            color: $--brand-blue;
+            clip-path: url(#portfolio-clip);
+        }
+
+        .title.main::before {
+            content: "check out my";
+            position: absolute;
+            display: block;
+            width: 100%;
+            font-family: "Marck Script";
+            font-size: 3rem;
+            height: 3rem;
+            padding-right: 20vw;
+            margin-top: -9vw;
+        }
+
+        .arrow {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            margin: 0;
+            border: $--white solid;
+            border-width: 0px 3px 3px 0px;
+            transform: rotate(45deg);
+            opacity: 0.5;
+            cursor: pointer;
+            transition: opacity 50ms ease,
+                transform 100ms ease,
+                color 50ms ease;
+
+            &:hover {
+                transform: scale(1.1) rotate(45deg);
+                border-color: $--brand-blue;
+                opacity: 1;
+            }
+
+        }
+    }
+
+    $--portfolio-items: 1;
+    $--project-height: 400px;
+    $--project-margin: 50px;
+
+    .pageContent {
+        height: max(400vh, calc(#{$--portfolio-items} * #{$--project-height}));
+
+        ul {
+            height: max(100vh, calc(#{$--portfolio-items} * #{$--project-height + $--project-margin}));
+            height: 100%;
+            padding-left: 0;
+            margin: 0 auto;
+            background-color: transparent;
+            height: $--project-height;
+            width: 70vw;
+            list-style-type: none;
+
+            li {
+                width: 100%;
+                height: $--project-height;
+                display: block;
+                position: relative;
+
+                .content {
+                    box-sizing: border-box;
+                    font-family: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+                    width: 50%;
+                    height: 100%;
+                    position: absolute;
+                    left: 20%;
+                    margin-top: 5%;
+
+                    h2 {
+                        box-sizing: inherit;
+                        font-size: 1.8rem;
+                        text-align: left;
+                        margin-left: 10%;
+                        margin-right: -2rem;
+                        z-index: 10;
+
+                        &::before {
+                            content: '<h2>';
+                            opacity: 0.3;
+                            font-size: 0.5rem;
+                        }
+
+                        &::after {
+                            content: '</h2>';
+                            opacity: 0.3;
+                            font-size: 0.5rem;
+                        }
+                    }
+
+                    p {
+                        font-size: 1.1rem;
+                        padding: 10px 30px;
+                        width: 70%;
+                        border-radius: 5px;
+                        background-color: $--white;
+                        color: $--black;
+                        position: absolute;
+                        z-index: 10;
+                    }
+
+                    .tools {
+                        width: 70%;
+                        display: flex;
+                        flex-flow: row nowrap;
+                        justify-content: space-between;
+                        flex: 1 1;
+                    }
+                }
+
+                .image {
+                    width: 50%;
+                    height: 100%;
+                    position: absolute;
+                    right: 20%;
+                    background-color: $--brand-blue;
+                    border-radius: 50px;
+                    z-index: -1;
+                }
+            }
+
+            li:nth-child(even) {
+                & .content {
+                    right: 0 !important;
+                    left: 30%;
+                }
+
+                & .image {
+                    left: 0 !important;
+                    right: 30%;
+                }
+            }
+
+            li+li {
+                margin-top: $--project-margin;
+            }
+
+        }
+
+        li:nth-child(odd) {
+            margin-right: 15%;
+
+            .title {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .project:nth-child(even) {
+            margin-left: 15%;
+        }
+    }
+}

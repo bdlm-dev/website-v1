@@ -1,0 +1,94 @@
+@import "Variables";
+
+$--animation-delay: 0.8s;
+$--duration: 800ms;
+$--iterations: 1;
+
+.reveal {
+    position: relative;
+    animation-name: revealText;
+
+    &::after {
+        content: "";
+        position: absolute;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $--white;
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        pointer-events: none;
+        animation-name: revealerText;
+    }
+
+    &,
+    &::after {
+        animation-delay: $--animation-delay;
+        animation-iteration-count: $--iterations;
+        animation-duration: $--duration;
+        animation-fill-mode: both;
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+.revealAlt {
+    position: relative;
+    animation-name: revealText;
+
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $--white;
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        pointer-events: none;
+        animation-name: revealerText;
+    }
+
+    &,
+    &::before {
+        animation-delay: calc(500ms + #{$--animation-delay});
+        animation-iteration-count: $--iterations;
+        animation-duration: $--duration;
+        animation-fill-mode: both;
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+@keyframes revealText {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes revealerText {
+
+    0%,
+    50% {
+        transform-origin: 0% 50%;
+    }
+
+    60%,
+    100% {
+        transform-origin: 100% 50%;
+    }
+
+    60% {
+        transform: scaleX(1);
+    }
+
+    100% {
+        transform: scaleX(0);
+    }
+}

@@ -1,0 +1,9 @@
+.pages {
+    position: absolute;
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100vw;
+    transition: all 500ms ease;
+    transform: translateX(0%);
+    z-index: 1;
+}

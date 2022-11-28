@@ -1,0 +1,47 @@
+@import "Variables";
+
+nav {
+    position: fixed;
+    display: block;
+    align-items: center;
+    margin: auto 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    pointer-events: none;
+
+    div.Right {
+        --rotate: -45deg;
+        right: 3rem;
+    }
+
+    div.Left {
+        --rotate: 135deg;
+        left: 3rem;
+    }
+
+    .Left,
+    .Right {
+        position: absolute;
+        top: calc(50% - 2rem);
+        width: 3rem;
+        height: 3rem;
+        z-index: 1000;
+        background-color: transparent;
+        transform: rotate(var(--rotate));
+        border-width: 0px 3px 3px 0px;
+        border-color: $--white;
+        pointer-events: all;
+        opacity: 0.5;
+        border-style: solid;
+        cursor: pointer;
+        transition: opacity 50ms ease, transform 100ms ease, color 50ms ease;
+    }
+
+    .Right:hover,
+    .Left:hover {
+        opacity: 1;
+        transform: scale(1.1) rotate(var(--rotate));
+        border-color: $--brand-blue;
+    }
+}

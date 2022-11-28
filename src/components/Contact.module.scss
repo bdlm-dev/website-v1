@@ -1,0 +1,108 @@
+@import './Variables';
+
+.contact {
+    position: absolute;
+    background-color: $--black;
+    width: 85vw;
+    height: 50vh;
+    left: 450vw;
+    padding-left: 10vw;
+    padding-right: 5vw;
+    padding-top: 25vh;
+    box-sizing: content-box;
+    font-family: "Staatliches";
+    font-style: normal;
+    font-weight: 400;
+    color: $--white;
+    display: grid;
+    place-items: center;
+
+    .chat {
+        font-family: "Marck Script";
+        text-align: center;
+        font-size: 4rem;
+        line-height: 1.6rem;
+        margin-right: 25vw;
+        margin-left: 2vw;
+    }
+
+    .email {
+        margin: 0 auto;
+        font-family: "Marcellus", serif;
+        width: 50vw;
+        height: 8rem;
+        background-color: white;
+        border-radius: 0px 2.5vw 0px 2.5vw;
+        color: black;
+        font-size: 3.2rem;
+        text-align: center;
+        line-height: 8rem;
+        text-decoration: underline 3px;
+        letter-spacing: -0.045em;
+
+        a {
+            text-decoration: inherit;
+            color: inherit;
+
+            &:hover {
+                color: $--highlight;
+            }
+        }
+    }
+
+    .links {
+        font-size: 1.2rem;
+        font-family: "Marcellus";
+        margin: 0 2vw 0 2.2vw;
+        display: flex;
+        flex-flow: row nowrap;
+        flex: 1 1 0;
+        justify-content: space-between !important;
+
+        .link {
+            display: block;
+        }
+
+        a {
+            position: relative;
+            line-height: 1.9rem;
+            color: $--white;
+            padding-right: 1.6vw;
+
+            &:hover {
+                color: $--highlight;
+
+            }
+        }
+    }
+}
+
+$--link-arrow-width: 0.18vw;
+
+.linkUpArrow {
+    box-sizing: border-box;
+    position: absolute;
+    display: inline-block;
+    width: 1.1vw;
+    height: 1.1vw;
+    margin-left: -1.5vw;
+    margin-top: 8px;
+    border-top: $--link-arrow-width solid;
+    transform: scale(0.7);
+    border-right: $--link-arrow-width solid;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.linkUpArrow::after {
+    content: "";
+    display: inline-block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 1.4vw;
+    height: $--link-arrow-width;
+    background: $--white;
+    transform: rotate(-45deg);
+    top: 0.35vw;
+    right: -0.25vw;
+}
