@@ -45,7 +45,7 @@ export default class Portfolio extends Component {
                     <div className={`${styles.title} ${styles.blue}`} clipPathUnits="objectBoundingBox">
                         PORTFOLIO
                     </div>
-                    <a className={styles.arrow} href="#projects" />
+                    <a className={styles.arrow} href="#projects">a</a>
                 </div>
                 <div className={styles.pageContent}>
                     <section id="projects">
